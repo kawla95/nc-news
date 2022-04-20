@@ -4,23 +4,18 @@ import { getArticles } from "../utils/api-endpoints";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
-  const [topic, setTopic] = useState("");
   const [sort_by, setSort_by] = useState("");
   const [order, setOrder] = useState("");
 
   useEffect(() => {
-    getArticles(topic, sort_by, order).then((res) => {
+    getArticles(sort_by, order).then((res) => {
       setArticles(res);
       console.log(res);
     });
-  }, [topic, sort_by, order]);
+  }, [sort_by, order]);
 
   return (
     <div>
-      <button onClick={() => setTopic("")}>All Topics</button>
-      <button onClick={() => setTopic("coding")}>Coding</button>
-      <button onClick={() => setTopic("football")}>Football</button>
-      <button onClick={() => setTopic("cooking")}>Cooking</button>
       <label for="sort_by">Sort By</label>
       <select name="sort_by" id="sort_by">
         <option
