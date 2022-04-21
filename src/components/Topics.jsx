@@ -1,22 +1,25 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getArticles } from "../utils/api-endpoints";
 
-const Articles = () => {
-  const [articles, setArticles] = useState([]);
+const Topics = () => {
+  const [topicArticles, setTopicArticles] = useState([]);
+
+  const { user_topic } = useParams();
 
   useEffect(() => {
-    getArticles().then((res) => {
-      setArticles(res);
+    getArticles(user_topic).then((res) => {
+      setTopicArticles(res);
+      console.log(res);
     });
-  }, []);
-
+  }, [user_topic]);
   return (
-    <main>
+    <div>
       <ul>
-        {articles.map((article) => {
+        {topicArticles.map((article) => {
           return (
-            <>
+            <div>
               <li key={article.article_id}>
                 <h3>{article.title}</h3>
                 <h4>Topic: {article.topic}</h4>
@@ -26,12 +29,12 @@ const Articles = () => {
                 <p>Created at: {article.created_at}</p>
                 <p>Comments: {article.comment_count}</p>
               </li>
-            </>
+            </div>
           );
         })}
       </ul>
-    </main>
+    </div>
   );
 };
 
-export default Articles;
+export default Topics;
