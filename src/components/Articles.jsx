@@ -8,7 +8,6 @@ const Articles = () => {
   useEffect(() => {
     getArticles().then((res) => {
       setArticles(res);
-      console.log(res);
     });
   }, []);
 
