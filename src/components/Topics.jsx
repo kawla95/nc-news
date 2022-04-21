@@ -1,18 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { getArticles } from "../utils/api-endpoints";
 
-const Topics = () => {
-  const [topicArticles, setTopicArticles] = useState([]);
+const Topics = ({ setChosenTopic, chosenTopic }) => {
+  const [topicArticles, setTopicArticles] = useState("");
 
-  const { user_topic } = useParams();
+  setChosenTopic(user_topic);
 
   useEffect(() => {
-    getArticles(user_topic).then((res) => {
+    getArticles(chosenTopic).then((res) => {
+      console.log(res);
       setTopicArticles(res);
     });
-  }, [user_topic]);
+  }, [chosenTopic]);
   return (
     <div>
       <ul>

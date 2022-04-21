@@ -1,19 +1,27 @@
 import { useState, useEffect } from "react";
 import { getArticles } from "../utils/api-endpoints";
+import { useParams } from "react-router-dom";
+import Nav from "./Nav";
+import moment from "moment";
 
 const Articles = () => {
+  const { user_topic } = useParams();
+  console.log(user_topic);
   const [articles, setArticles] = useState([]);
+  const [topic, setTopic] = useState("");
   const [sort_by, setSort_by] = useState("");
   const [order, setOrder] = useState("");
 
   useEffect(() => {
-    getArticles(order, sort_by).then((res) => {
+    getArticles(topic, sort_by, order).then((res) => {
       setArticles(res);
     });
-  }, [sort_by, order]);
+  }, [topic, sort_by, order]);
 
   return (
     <div>
+      <Nav setTopic={setTopic} />
+
       <label htmlFor="sort_by">Sort By: </label>
       <select name="sort_by" id="sort_by">
         <option
@@ -41,7 +49,9 @@ const Articles = () => {
                 <h4>{article.author}</h4>
                 <p>{article.body}</p>
                 <p>Votes: {article.votes}</p>
-                <p>Created at: {article.created_at}</p>
+                <p>
+                  Created at: {moment(article.created_at).format("MMM Do YYYY")}
+                </p>
                 <p>Comments: {article.comment_count}</p>
               </li>
             </>
