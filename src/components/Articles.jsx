@@ -20,25 +20,7 @@ const Articles = () => {
 
   return (
     <div>
-      <Nav setTopic={setTopic} />
-
-      <label htmlFor="sort_by">Sort By: </label>
-      <select name="sort_by" id="sort_by">
-        <option
-          value="comment_count"
-          onClick={() => setSort_by("comment_count")}
-        >
-          Comment Count
-        </option>
-        <option value="created_at" onClick={() => setSort_by("created_at")}>
-          Date
-        </option>
-        <option value="votes" onClick={() => setSort_by("votes")}>
-          Votes
-        </option>
-      </select>
-      <button onClick={() => setOrder("ASC")}>Latest</button>
-      <button onClick={() => setOrder("DESC")}>Oldest</button>
+      <Nav setTopic={setTopic} setOrder={setOrder} setSort_by={setSort_by} />
       <ul>
         {articles.map((article) => {
           return (
