@@ -1,24 +1,33 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { getTopics } from "../utils/api-endpoints";
+import { useParams } from "react-router-dom";
+import { getArticles } from "../utils/api-endpoints";
 
 const Topics = () => {
-  const [topics, setTopics] = useState([]);
+  const [topicArticles, setTopicArticles] = useState([]);
+
+  const { user_topic } = useParams();
 
   useEffect(() => {
-    getTopics().then((res) => {
-      setTopics(res);
+    getArticles(user_topic).then((res) => {
+      setTopicArticles(res);
+      console.log(res);
     });
-  }, []);
+  }, [user_topic]);
   return (
     <div>
       <ul>
-        {topics.map((topic) => {
+        {topicArticles.map((article) => {
           return (
             <div>
-              <li key={topic.topic_id}>
-                <h2>{topic.slug}</h2>
-                <p>{topic.description}</p>
+              <li key={article.article_id}>
+                <h3>{article.title}</h3>
+                <h4>Topic: {article.topic}</h4>
+                <h5>Author: {article.author}</h5>
+                <p>{article.body}</p>
+                <p>Votes: {article.votes}</p>
+                <p>Created at: {article.created_at}</p>
+                <p>Comments: {article.comment_count}</p>
               </li>
             </div>
           );

@@ -4,21 +4,16 @@ import { getArticles } from "../utils/api-endpoints";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
-  const [topic, setTopic] = useState("");
+  const [topic] = useState("");
 
   useEffect(() => {
-    getArticles(topic).then((res) => {
+    getArticles().then((res) => {
       setArticles(res);
-      console.log(res);
     });
   }, [topic]);
 
   return (
     <main>
-      <button onClick={() => setTopic("")}>All Topics</button>
-      <button onClick={() => setTopic("coding")}>Coding</button>
-      <button onClick={() => setTopic("football")}>Football</button>
-      <button onClick={() => setTopic("cooking")}>Cooking</button>
       <ul>
         {articles.map((article) => {
           return (

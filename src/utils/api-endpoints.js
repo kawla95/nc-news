@@ -5,8 +5,8 @@ const articlesApi = axios.create({
 });
 
 export const getArticles = (user_topic) => {
-  let path = "/articles?";
-  if (user_topic) path += `topic=${user_topic}`;
+  let path = "/articles";
+  if (user_topic) path += `/?topic=${user_topic}`;
   return articlesApi.get(path).then((res) => {
     return res.data.articles;
   });
