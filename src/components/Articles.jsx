@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import { getArticles } from "../utils/api-endpoints";
 
@@ -8,15 +7,14 @@ const Articles = () => {
   const [order, setOrder] = useState("");
 
   useEffect(() => {
-    getArticles(sort_by, order).then((res) => {
+    getArticles(order, sort_by).then((res) => {
       setArticles(res);
-      console.log(res);
     });
   }, [sort_by, order]);
 
   return (
     <div>
-      <label for="sort_by">Sort By</label>
+      <label htmlFor="sort_by">Sort By</label>
       <select name="sort_by" id="sort_by">
         <option
           value="comment_count"
