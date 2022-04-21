@@ -4,7 +4,7 @@ const articlesApi = axios.create({
   baseURL: "https://backend-of-news-app.herokuapp.com/api",
 });
 
-export const getArticles = (user_order, user_sort_by, user_topic) => {
+export const getArticles = (user_topic, user_sort_by, user_order) => {
   let path = "/articles";
   path += `?order=${user_order || "DESC"}`;
   if (user_sort_by) path += `&sort_by=${user_sort_by}`;

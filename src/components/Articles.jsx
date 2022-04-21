@@ -14,7 +14,7 @@ const Articles = () => {
 
   return (
     <div>
-      <label htmlFor="sort_by">Sort By</label>
+      <label htmlFor="sort_by">Sort By: </label>
       <select name="sort_by" id="sort_by">
         <option
           value="comment_count"
