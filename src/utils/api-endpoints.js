@@ -11,3 +11,9 @@ export const getArticles = (user_topic) => {
     return res.data.articles;
   });
 };
+export const getTopics = () => {
+  let path = "/topics";
+  return articlesApi.get(path).then((res) => {
+    return res.data.topics;
+  });
+};

@@ -14,7 +14,7 @@ const Articles = () => {
   }, [topic]);
 
   return (
-    <div>
+    <main>
       <button onClick={() => setTopic("")}>All Topics</button>
       <button onClick={() => setTopic("coding")}>Coding</button>
       <button onClick={() => setTopic("football")}>Football</button>
@@ -25,8 +25,8 @@ const Articles = () => {
             <>
               <li key={article.article_id}>
                 <h3>{article.title}</h3>
-                <p>{article.topic}</p>
-                <h4>{article.author}</h4>
+                <h4>Topic: {article.topic}</h4>
+                <h5>Author: {article.author}</h5>
                 <p>{article.body}</p>
                 <p>Votes: {article.votes}</p>
                 <p>Created at: {article.created_at}</p>
@@ -36,7 +36,7 @@ const Articles = () => {
           );
         })}
       </ul>
-    </div>
+    </main>
   );
 };
 
