@@ -4,13 +4,12 @@ import { getArticles } from "../utils/api-endpoints";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
-  const [topic] = useState("");
 
   useEffect(() => {
     getArticles().then((res) => {
       setArticles(res);
     });
-  }, [topic]);
+  }, []);
 
   return (
     <main>

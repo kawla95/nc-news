@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const Nav = ({ setTopic }) => {
+const Nav = () => {
+  const [topic, setTopic] = useState("");
   return (
     <nav>
       <Link to="/">
