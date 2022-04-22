@@ -27,7 +27,6 @@ const Article = () => {
           <p>Topic: {article.topic}</p>
           <p>{article.body}</p>
           <p> votes: {article.votes} </p>
-          <p>Comments: {article.comment_count}</p>
         </li>
       </ul>
     </div>
