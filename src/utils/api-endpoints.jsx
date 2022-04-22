@@ -13,3 +13,9 @@ export const getArticles = (user_topic, user_sort_by, user_order) => {
     return res.data.articles;
   });
 };
+
+export const getArticleById = (article_id) => {
+  return articlesApi.get(`/articles/${article_id}`).then((res) => {
+    return res.data.article;
+  });
+};
