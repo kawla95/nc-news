@@ -1,24 +1,24 @@
 import React from "react";
-import { getArticleById } from "../utils/api-endpoints";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getArticleById } from "../utils/api-endpoints";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
 const Article = () => {
-  const { article_id } = useParams();
-  const [topic, setTopic] = useState("");
-  const [article, setArticle] = useState([]);
+  const { articleId } = useParams();
+  const [article, setArticle] = useState("");
 
   useEffect(() => {
-    getArticleById(article_id).then((res) => {
+    getArticleById(articleId).then((res) => {
+      console.log(res);
       setArticle(res);
     });
-  }, [article_id]);
+  }, [articleId]);
   return (
     <div>
       <Link to="/">
-        <button onClick={() => setTopic("")}>Back to all articles</button>
+        <button>Homepage</button>
       </Link>
       <ul>
         <li key={article.article_id}>
@@ -27,6 +27,7 @@ const Article = () => {
           <p>Topic: {article.topic}</p>
           <p>{article.body}</p>
           <p> votes: {article.votes} </p>
+          <p> Comments: {article.comment_count} </p>
         </li>
       </ul>
     </div>
