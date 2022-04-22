@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
-const Nav = () => {
-  const [topic, setTopic] = useState("");
+const Nav = ({ setTopic, setSort_by, setOrder }) => {
   return (
     <nav>
       <Link to="/">
@@ -16,6 +14,27 @@ const Nav = () => {
       </Link>
       <Link to="/cooking">
         <button onClick={() => setTopic("cooking")}>Cooking</button>
+      </Link>
+      <Link to="/">
+        <button onClick={() => setSort_by("comment_count")}>
+          Comment count
+        </button>
+      </Link>
+      <Link to="/">
+        <button onClick={() => setSort_by("created_at")}>Date</button>
+      </Link>
+      <Link to="/">
+        <button onClick={() => setSort_by("votes")}>Votes</button>
+      </Link>
+      <Link to="/">
+        <button onClick={() => setOrder("ASC")}>
+          Order Articles Ascending
+        </button>
+      </Link>
+      <Link to="/">
+        <button onClick={() => setOrder("DESC")}>
+          Order Articles Descending
+        </button>
       </Link>
     </nav>
   );
