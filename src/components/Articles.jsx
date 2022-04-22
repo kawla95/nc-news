@@ -6,7 +6,6 @@ import moment from "moment";
 
 const Articles = () => {
   const { user_topic } = useParams();
-  console.log(user_topic);
   const [articles, setArticles] = useState([]);
   const [topic, setTopic] = useState("");
   const [sort_by, setSort_by] = useState("");
