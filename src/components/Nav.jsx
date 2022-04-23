@@ -4,7 +4,7 @@ const Nav = ({ setTopic, setSort_by, setOrder }) => {
   return (
     <nav>
       <Link to="/">
-        <button onClick={() => setTopic("")}>All Topics</button>
+        <button onClick={() => setTopic("")}>Homepage</button>
       </Link>
       <Link to="/coding">
         <button onClick={() => setTopic("coding")}>Coding</button>

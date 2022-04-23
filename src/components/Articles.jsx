@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
 import { getArticles } from "../utils/api-endpoints";
-import { useParams } from "react-router-dom";
 import Nav from "./Nav";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
 const Articles = () => {
-  const { user_topic } = useParams();
-  console.log(user_topic);
-
   const [articles, setArticles] = useState([]);
   const [topic, setTopic] = useState("");
   const [sort_by, setSort_by] = useState("");
