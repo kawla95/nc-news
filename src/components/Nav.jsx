@@ -4,7 +4,7 @@ const Nav = ({ setTopic, setSort_by, setOrder }) => {
   return (
     <nav>
       <Link to="/">
-        <button onClick={() => setTopic("")}>All Topics</button>
+        <button onClick={() => setTopic("")}>Homepage</button>
       </Link>
       <Link to="/coding">
         <button onClick={() => setTopic("coding")}>Coding</button>
@@ -15,10 +15,10 @@ const Nav = ({ setTopic, setSort_by, setOrder }) => {
       <Link to="/cooking">
         <button onClick={() => setTopic("cooking")}>Cooking</button>
       </Link>
+      <br />
+      Sort by:
       <Link to="/">
-        <button onClick={() => setSort_by("comment_count")}>
-          Comment count
-        </button>
+        <button onClick={() => setSort_by("comment_count")}>Comments</button>
       </Link>
       <Link to="/">
         <button onClick={() => setSort_by("created_at")}>Date</button>
@@ -26,15 +26,13 @@ const Nav = ({ setTopic, setSort_by, setOrder }) => {
       <Link to="/">
         <button onClick={() => setSort_by("votes")}>Votes</button>
       </Link>
+      <br />
+      Order:
       <Link to="/">
-        <button onClick={() => setOrder("ASC")}>
-          Order Articles Ascending
-        </button>
+        <button onClick={() => setOrder("ASC")}>Ascending</button>
       </Link>
       <Link to="/">
-        <button onClick={() => setOrder("DESC")}>
-          Order Articles Descending
-        </button>
+        <button onClick={() => setOrder("DESC")}>Descending</button>
       </Link>
     </nav>
   );
