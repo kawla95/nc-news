@@ -25,3 +25,10 @@ export const getArticleComments = (articleId) => {
     return res.data;
   });
 };
+export const postNewComment = (articleId, reqBody) => {
+  return articlesApi
+    .post(`/articles/${articleId}/comments`, reqBody)
+    .then((res) => {
+      return res;
+    });
+};

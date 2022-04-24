@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getArticleById, getArticleComments } from "../utils/api-endpoints";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import PostComment from "./PostComment";
 
 const Article = () => {
   const { articleId } = useParams();
@@ -32,6 +33,7 @@ const Article = () => {
           <p>Topic: {article.topic}</p>
           <p>{article.body}</p>
         </li>
+        <PostComment articleId={articleId} />
         <button
           onClick={() =>
             showComments ? setShowComments(false) : setShowComments(true)
