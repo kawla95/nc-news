@@ -5,20 +5,26 @@ import { Modal, Button } from "react-bootstrap";
 const PostComment = ({ articleId, setComments }) => {
   const [newComment, setNewComment] = useState("");
   const [commentPosted, setCommentPosted] = useState(false);
+  const [blankComment, setBlankComment] = useState(false);
 
   const handlePopupClose = () => setCommentPosted(false);
+  const handleBlankCommentClose = () => setBlankComment(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setCommentPosted(true);
-    let reqBody = { username: "jessjelly", body: newComment };
+    if (newComment.length > 0) {
+      setCommentPosted(true);
+      let reqBody = { username: "jessjelly", body: newComment };
 
-    postNewComment(articleId, reqBody).then((res) => {
-      setComments((currComments) => {
-        return [res.data.comment, ...currComments];
+      postNewComment(articleId, reqBody).then((res) => {
+        setComments((currComments) => {
+          return [res.data.comment, ...currComments];
+        });
       });
-    });
-    setNewComment("");
+      setNewComment("");
+    } else {
+      setBlankComment(true);
+    }
   };
 
   return (
@@ -33,6 +39,16 @@ const PostComment = ({ articleId, setComments }) => {
           </Button>
         </Modal.Footer>
       </Modal>
+      <Modal show={blankComment} onHide={handleBlankCommentClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>You cannot post an empty comment</Modal.Title>
+        </Modal.Header>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleBlankCommentClose}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <form onSubmit={handleSubmit}>
         <textarea
           value={newComment}
@@ -40,7 +56,7 @@ const PostComment = ({ articleId, setComments }) => {
             setNewComment(e.target.value);
           }}
         ></textarea>
-        <button> Post Comment </button>
+        <button> Post Comment 👍 </button>
       </form>
     </>
   );

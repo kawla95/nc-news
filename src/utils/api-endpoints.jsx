@@ -32,3 +32,8 @@ export const postNewComment = (articleId, reqBody) => {
       return res;
     });
 };
+export const deleteComment = (comment_id) => {
+  return articlesApi.delete(`/comments/${comment_id}`).then((res) => {
+    return res;
+  });
+};

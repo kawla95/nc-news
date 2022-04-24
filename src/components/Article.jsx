@@ -5,6 +5,7 @@ import { getArticleById, getArticleComments } from "../utils/api-endpoints";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import PostComment from "./PostComment";
+import DeleteComment from "./DeleteComment";
 
 const Article = () => {
   const { articleId } = useParams();
@@ -45,11 +46,18 @@ const Article = () => {
         {showComments ? (
           comments.map((comment) => {
             return (
-              <li key={comment.comment_id}>
-                <p>By: {comment.author}</p>
-                <p>On: {moment(comment.created_at).format("MMM Do YY")} </p>
-                <p> comment: {comment.body}</p>
-              </li>
+              <>
+                <li key={comment.comment_id}>
+                  <p>By: {comment.author}</p>
+                  <p>On: {moment(comment.created_at).format("MMM Do YYYY")} </p>
+                  <p> comment: {comment.body}</p>
+                </li>
+                {comment.author === "jessjelly" ? (
+                  <DeleteComment comment_id={comment.comment_id} />
+                ) : (
+                  <></>
+                )}
+              </>
             );
           })
         ) : (
