@@ -33,7 +33,7 @@ const Article = () => {
           <p>Topic: {article.topic}</p>
           <p>{article.body}</p>
         </li>
-        <PostComment articleId={articleId} />
+        <PostComment articleId={articleId} setComments={setComments} />
         <button
           onClick={() =>
             showComments ? setShowComments(false) : setShowComments(true)

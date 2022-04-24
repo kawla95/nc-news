@@ -2,7 +2,7 @@ import { useState } from "react";
 import { postNewComment } from "../utils/api-endpoints";
 import { Modal, Button } from "react-bootstrap";
 
-const PostComment = ({ articleId }) => {
+const PostComment = ({ articleId, setComments }) => {
   const [newComment, setNewComment] = useState("");
   const [commentPosted, setCommentPosted] = useState(false);
 
@@ -11,8 +11,13 @@ const PostComment = ({ articleId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setCommentPosted(true);
-    let comment = { username: "jessjelly", body: newComment };
-    postNewComment(articleId, comment);
+    let reqBody = { username: "jessjelly", body: newComment };
+
+    postNewComment(articleId, reqBody).then((res) => {
+      setComments((currComments) => {
+        return [res.data.comment, ...currComments];
+      });
+    });
     setNewComment("");
   };
 
