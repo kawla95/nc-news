@@ -18,6 +18,7 @@ const Article = () => {
       setArticle(res);
     });
     getArticleComments(articleId).then((res) => {
+      console.log(res);
       setComments(res);
     });
   }, [articleId]);
