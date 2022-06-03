@@ -37,3 +37,10 @@ export const deleteComment = (comment_id) => {
     return res;
   });
 };
+export const patchArticleVotes = (article_id) => {
+  return articlesApi
+    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .then((res) => {
+      return res;
+    });
+};

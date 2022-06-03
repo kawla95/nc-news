@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import PostComment from "./PostComment";
 import DeleteComment from "./DeleteComment";
+import Votes from "./Votes";
 
 const Article = () => {
   const { articleId } = useParams();
@@ -33,6 +34,7 @@ const Article = () => {
           <p>On: {moment(article.created_at).format("MMM Do YY")} </p>
           <p>Topic: {article.topic}</p>
           <p>{article.body}</p>
+          <Votes votes={article.votes} article_id={article.article_id} />
         </li>
         <PostComment articleId={articleId} setComments={setComments} />
         <button

@@ -56,7 +56,7 @@ const PostComment = ({ articleId, setComments }) => {
             setNewComment(e.target.value);
           }}
         ></textarea>
-        <button> Post Comment 👍 </button>
+        <button> Post Comment </button>
       </form>
     </>
   );
