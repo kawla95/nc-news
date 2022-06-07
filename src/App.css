@@ -5,4 +5,46 @@ body {
 
 ul {
   padding: 0;
+  list-style: none;
+}
+
+.App {
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+  /* background-color: antiquewhite; */
+}
+
+.Title {
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  padding: 2%;
+}
+
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  font-weight: bold;
+  background: cadetblue;
+}
+
+button,
+.HomeButton {
+  background: cadetblue;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.Topic {
+  font-weight: bold;
+}
+
+.PostComment {
+  margin: 8px;
 }

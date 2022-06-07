@@ -31,10 +31,13 @@ const Article = () => {
       <ul>
         <li key={article.article_id}>
           <h3> By: {article.author}</h3>
-          <p>On: {moment(article.created_at).format("MMM Do YY")} </p>
-          <p>Topic: {article.topic}</p>
+          <p>{moment(article.created_at).format("Do MMM YYYY")} </p>
           <p>{article.body}</p>
-          <Votes votes={article.votes} article_id={article.article_id} />
+          <Votes
+            ClassName="Vote"
+            votes={article.votes}
+            article_id={article.article_id}
+          />
         </li>
         <PostComment articleId={articleId} setComments={setComments} />
         <button

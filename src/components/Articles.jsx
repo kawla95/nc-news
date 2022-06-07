@@ -19,7 +19,7 @@ const Articles = () => {
   return (
     <div>
       <Nav setTopic={setTopic} setOrder={setOrder} setSort_by={setSort_by} />
-      <h1>News and Views</h1>
+      <h1 className="Title">News and Views</h1>
       <ul>
         {articles.map((article) => {
           return (
@@ -30,14 +30,10 @@ const Articles = () => {
                     {article.title}
                   </Link>
                 </h3>
-                <p>{article.topic}</p>
-                <h4>{article.author}</h4>
-                <p>{article.body}</p>
-                <p>Votes: {article.votes}</p>
-                <p>
-                  Created at: {moment(article.created_at).format("MMM Do YYYY")}
-                </p>
-                <p>Comments: {article.comment_count}</p>
+                <h4 className="Topic"> Topic: {article.topic}</h4>
+                <h5 className="Author"> By: {article.author}</h5>
+                <h6>On {moment(article.created_at).format("Do MMM YYYY")}</h6>
+                <h7>Comments: {article.comment_count}</h7>
               </li>
             </>
           );

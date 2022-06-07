@@ -19,7 +19,6 @@ const Votes = ({ article_id }) => {
   return (
     <div>
       <button onClick={clickHandler}>{isLiked ? "Unvote" : "Vote"}</button>
-      <p>{vote}</p>
     </div>
   );
 };
