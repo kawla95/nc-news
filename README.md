@@ -1,6 +1,6 @@
 The Front-End of a News App
 
-The hosted version of the app is available at: _needs deployment first_
+The hosted version of the app is available at: https://newsandviews.netlify.app
 
 This app is reddit-style app where users can read, post, comment and vote on articles.
 
@@ -26,7 +26,6 @@ sort articles by:
 - delete user's own comments (as a default logged in user. e.g. 'jessjelly').
 
 Error-handling:
-Users can see an appropriate error if they go on a non-existent path / a path for a non-existent article / topic.
 Users cannot post a comment if the form is not filled in.
 
 Additional User Stories
