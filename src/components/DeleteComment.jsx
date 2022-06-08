@@ -7,8 +7,10 @@ const DeleteComment = ({ comment_id }) => {
   const handlePopupClose = () => setCommentDeleted(false);
   const handleDelete = (e) => {
     e.preventDefault();
-    deleteComment(comment_id).then(() => {
-      setCommentDeleted(true);
+    setCommentDeleted(true);
+    deleteComment(comment_id).then((res) => {
+      console.log(res);
+      return res;
     });
   };
   return (

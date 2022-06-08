@@ -34,6 +34,7 @@ const Articles = () => {
                 <h5 className="Author"> By: {article.author}</h5>
                 <h6>On {moment(article.created_at).format("Do MMM YYYY")}</h6>
                 <h7>Comments: {article.comment_count}</h7>
+                <p> Votes: {article.votes}</p>
               </li>
             </>
           );
