@@ -1,35 +1,37 @@
-The Front-End of a News App
+# The Front-End of a News App
 
 The hosted version of the app is available at: https://newsandviews.netlify.app
 
 This app is reddit-style app where users can read, post, comment and vote on articles.
 
-To run the application locally
-Click code on the top right of this page and copy the URL for this repository
-Open your terminal and then type:
-$ git clone {paste the URL of this repository} - this will clone it.
-Navigate (using the cd command) into the new folder and type: $ npm install - This installs the required dependencies.
-Finally, to run the React project type $ npm start.
+## To run the application locally
 
-Users are able to:
-view a list of all articles
-view a page for each topic with a list of related articles.
-view an individual article.
-view an individual article's comments.
-vote on an article and immediately see the change.
-post a new comment to an existing article (as a default logged in user. e.g. 'jessjelly').
-sort articles by:
+- Click code on the top right of this page and copy the URL for this repository
+- Open your terminal and then type.
+- `$ git clone {paste the URL of this repository}`. This will clone it.
+- Navigate (using the `cd` command) into the new folder and type. `$ npm install` This installs the required dependencies.
+- Finally, to run the React project type `$ npm start`.
 
-- date created
-- comment_count
-- votes
-- delete user's own comments (as a default logged in user. e.g. 'jessjelly').
+### Users are able to:
+
+- view a list of all articles
+- view a page for each topic with a list of related articles.
+- view an individual article.
+- view an individual article's comments.
+- vote on an article and immediately see the change.
+- post a new comment to an existing article (as a default logged in user. e.g. 'jessjelly').
+- sort articles by:
+  date created
+  comment_count
+  votes
+  delete user's own comments (as a default logged in user. e.g.'jessjelly').
 
 Error-handling:
 Users cannot post a comment if the form is not filled in.
 
-Additional User Stories
-Viewers can:
+## Additional User Stories
+
+#### Viewers can:
 
 - use the site on a mobile without sacrificing style or functionality.
 - follow the readme instructions to easily run the project locally.
